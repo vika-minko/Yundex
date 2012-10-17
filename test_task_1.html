@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script>
+			function reversePrint (linkedList) {
+				var values = extractValuesFrom(linkedList, []);
+				
+				if (console) {
+					console.log('Take your values in reverse order: ' + 
+						values.reverse().join(','))
+				}
+			}
+			
+			function extractValuesFrom(node, values) {
+				values.push(node.value);
+				return (node.next) ? extractValuesFrom(node.next, values) : values;
+			}
+	
+			var someList = {
+				value: 1,
+				next: {
+					value: 2,
+					next: {
+						value: 3,
+						next: {
+							value: 4,
+							next: null
+						}
+					}
+				}
+			};
+			reversePrint(someList);
+		</script>
+	</head>
+	<body />
+</html>
